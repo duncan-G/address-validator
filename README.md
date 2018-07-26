@@ -1,6 +1,6 @@
 # Address Validator
 
-A simple address validator using the Google's Geocode API
+A simple address validator using Google's Geocode API.
 
 ## Dependencies
 * ruby

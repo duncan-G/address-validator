@@ -1,0 +1,24 @@
+<div class="submission-result">
+    <div class="result-header" style="background-color:#f8d7da;">
+        <div class="result-header-text">
+            Address Invalid
+        </div>
+    </div>
+    <div class="result-explanation" style="margin-bottom:25px;">
+        The address provided did not match any valid US address.
+    </div>
+    <div class="result-body">
+        
+        <div class="result-body-content">
+            <p class="result-body-text">
+                <%= address["street_address"] %> </br>
+                <%= address["city"] %>,
+                <%= address["state"] %>,
+                <%= address["zip_code"] %>
+            </p>
+            <%= link_to "Validate Another", new_address_path(:partial_name => 'address_form'),
+                        class: "validate-button btn btn-info", :remote => true
+            %>
+        </div>
+    </div>
+</div>

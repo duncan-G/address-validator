@@ -1,0 +1,106 @@
+// Place all the styles related to the addresses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "mixins";
+
+$max-width: 500px;
+
+#alert-message {
+    width: 100%;
+    max-width: $max-width;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+
+    .alert {
+        width: 100%;
+        
+    }
+}
+
+#address-validator {
+    padding: 20px;
+    width: 100%;
+    max-width: $max-width;
+    position: relative;
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+
+    .buttons {
+        margin-top: 10px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .error {
+        color: #ff2929;
+        font-size: 9px;
+
+        ul, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .submission-result {
+
+        .result-header {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+    
+            .result-header-text {
+                padding: 15px;
+            }
+        }
+
+        .result-explanation {
+            margin-top:40px;
+        }
+
+        .result-body {
+            width: 100%;
+            margin-bottom: 20px;
+
+            .result-body-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0 5px;
+
+                .result-body-text {
+                    line-height: 95%;
+                    font-family: "Arial Narrow", Arial, sans-serif;
+                    font-size: 14px;
+                    margin: 0;
+                }
+
+                .suggested-valid-address {
+                    @include media-breakpoint('xs') {
+                        margin-top: 30px;
+                    }
+                }
+
+                @include media-breakpoint('xs') {
+                    flex-direction: column;
+
+                    .validate-button {
+                        font-size: 9px;
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+        // Validate button that goes outside of result body
+        .validate-button-2 {
+            width: 100%;
+        }
+    }
+
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AddressValidator</title>
+    <%= render "layouts/meta" %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type =>  "image/x-icon" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="/assets/jquery.js" type="text/javascript"></script>
+    <%= render "layouts/shim" %>
+  </head>
+
+  <script type="text/javascript">
+    document.cookie = 'hasJS=true';
+  </script>
+
+  <body>
+    <!-- top nav bar -->
+    <%= render  "layouts/header" %>
+    <!-- end top nav bar -->
+
+    <!-- main content -->
+    <div id="main" class="container">
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+    <!-- end main content -->
+
+  </body>
+</html>

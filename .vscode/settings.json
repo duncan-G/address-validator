@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.release": "dockerfile",
+        "Dockerfile.nginx": "dockerfile",
+    }
+}

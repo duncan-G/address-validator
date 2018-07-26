@@ -1,0 +1,47 @@
+<div class="submission-result">
+    <div class="result-header" style="background-color:#bbdefb;">
+        <div class="result-header-text">
+            Suggested Valid Address
+        </div>
+    </div>
+    <div class="result-explanation" style="margin-bottom:25px;">
+        The address provided did not match any valid US address. However, a partial 
+        match was found.
+    </div>
+    <div class="result-body">
+        
+        <div class="result-body-content">
+            <div>
+                <p>Address provided</p>
+                <p class="result-body-text" style="margin-left:15px;font-size: 13px;">
+                    <%= address[:form_address]["street_address"] %> </br>
+                    <%= address[:form_address]["city"] %>,
+                    <%= address[:form_address]["state"] %>,
+                    <%= address[:form_address]["zip_code"] %>
+                </p>
+            </div>
+            <div class="suggested-valid-address">
+                <p style="font-weight:600;">SUGGESTED VALID ADDRESS</p>
+                <p class="result-body-text" style="margin-left:15px;">
+                    <%= address[:api_address]["house_number"] %>
+                    <%= address[:api_address]["street_predirection"] %>
+                    <%= address[:api_address]["street_name"] %>
+                    <%= address[:api_address]["street_type"] %>
+                    <%= address[:api_address]["street_postdirection"] %>
+                    <%= address[:api_address]["unit_type"] unless address[:api_address]["unit_number"].nil? %>
+                    <%= address[:api_address]["unit_number"] %>
+                    </br>
+                    <%= address[:api_address]["city"] + ',' unless address[:api_address]["city"].nil? %>
+                    <%= address[:api_address]["state"] + ',' unless address[:api_address]["state"].nil? %>
+                    <%= "#{address[:api_address]["zip_5"]}#{'-'+address[:api_address]["zip_4"] unless (address[:api_address]["zip_4"].nil?)}" %>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-top:30px;">
+        <%= link_to "Validate Another", new_address_path(:partial_name => 'address_form'),
+            class: "validate-button-2 btn btn-info", :remote => true
+        %>
+    </div>
+</div>

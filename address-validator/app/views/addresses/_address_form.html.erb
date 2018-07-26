@@ -1,0 +1,89 @@
+<%= form_for @address_form, url: '/addresses', remote: cookies()[:hasJS] do |f| %>
+    <div class="form-group">
+        <%= f.label  :street_address %>
+        <%= f.text_field :street_address, class: "form-control", placeholder: "Enter address" %>
+        <% if @address_form.errors[:street_address].any? %>
+            <small class="error">
+                <ul>
+                    <!-- If first error is "can't be blank". Only display this error -->
+                    <% if @address_form.errors[:street_address].first.include?("can't be blank") %>
+                        <li> <%=  @address_form.errors[:street_address].first %> </li>
+                    <!-- Else display all errors -->
+                    <% else %>
+                        <%  @address_form.errors[:street_address].each do |error| %>
+                            <li> <%= error %> </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </small>
+        <% end %>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-5">
+        <%= f.label  :city %>
+        <%= f.text_field :city, class: "form-control", placeholder: "Enter city" %>
+        <% if @address_form.errors[:city].any? %>
+            <small class="error">
+                <ul>
+                    <!-- If first error is "can't be blank". Only display this error -->
+                    <% if @address_form.errors[:city].first.include?("can't be blank") %>
+                        <li> <%=  @address_form.errors[:city].first %> </li>
+                    <!-- Else display all errors -->
+                    <% else %>
+                        <%  @address_form.errors[:city].each do |error| %>
+                            <li> <%= error %> </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </small>
+        <% end %>
+        </div>
+
+        <div class="form-group col-md-4">
+        <%= f.label :state %>
+        <%= f.select :state, options_for_select(us_states), { include_blank: true}, { class: "form-control" }  %>
+        <% if @address_form.errors[:state].any? %>
+            <small class="error">
+                <ul>
+                    <!-- If first error is "can't be blank". Only display this error -->
+                    <% if @address_form.errors[:state].first.include?("can't be blank") %>
+                        <li> <%=  @address_form.errors[:state].first %> </li>
+                    <!-- Else display all errors -->
+                    <% else %>
+                        <%  @address_form.errors[:state].each do |error| %>
+                            <li> <%= error %> </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </small>
+        <% end %>
+        </div>
+
+        <div class="form-group col-md-3">
+        <%= f.label  :zip_code %>
+        <%= f.text_field :zip_code, class: "form-control", placeholder: "Enter zip" %>
+        <% if @address_form.errors[:zip_code].any? %>
+            <small class="error">
+                <ul>
+                    <!-- If first error is "can't be blank". Only display this error -->
+                    <% if @address_form.errors[:zip_code].first.include?("can't be blank") %>
+                        <li> <%=  @address_form.errors[:zip_code].first %> </li>
+                    <!-- Else display all errors -->
+                    <% else %>
+                        <%  @address_form.errors[:zip_code].each do |error| %>
+                            <li> <%= error %> </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </small>
+        <% end %>
+        </div>
+    </div>
+
+    <div class="buttons">
+    <%= button_tag 'Validate Address', class: 'btn btn-info', id: 'new-address-submit',
+        data: { disable_with: "<i class='fa fa-refresh fa-spin'>
+        </i> Validating..."} %>
+    </div>
+<% end %> 

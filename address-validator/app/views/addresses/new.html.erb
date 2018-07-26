@@ -1,0 +1,10 @@
+<div class="page-container">
+    <div id="alert-message">
+        <% flash.each do |key, value| %>
+            <div style="width: 100%;" class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+    </div>
+    <div id ="address-validator">
+        <%= render :partial => partial_name, locals: { :address => address } %>
+    </div>
+</div>

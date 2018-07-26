@@ -1,0 +1,5 @@
+$('#address-validator')
+    .hide()
+    .html("<%= escape_javascript(render :partial => partial_name,\
+        locals: { :address => address } ) %>")
+    .fadeIn(750);

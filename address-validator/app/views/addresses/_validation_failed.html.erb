@@ -1,0 +1,22 @@
+<div class="submission-result">
+    <div class="result-header" style="background-color:#e2e3e5;">
+        <div class="result-header-text">
+            Validation Failed
+        </div>
+    </div>
+   
+    <div class="result-body" style="display:flex;justify-content:center;margin-top:50px;">
+        <div style="width:40%">
+            <%= image_tag("fail.svg", width: "100%", alt: "Sorry") %>
+        </div>
+    </div>
+     <div class="result-explanation" style="margin-bottom:25px;">
+        <i>
+            So sorry, something went wrong. Please try Again.
+            If problem persists, don't hesitate to contact us!"
+        </i>
+    </div>
+    <%= link_to "Try Again", new_address_path(:partial_name => 'address_form'),
+                class: "validate-button validate-button-2 btn btn-success", :remote => true
+    %>
+</div>

@@ -1,0 +1,31 @@
+<div class="submission-result">
+    <div class="result-header" style="background-color:#dff0d8;">
+        <div class="result-header-text">
+            Validated Address
+        </div>
+    </div>
+    <div class="result-explanation" style="margin-bottom:25px;">
+        The adderss is valid!
+    </div>
+    <div class="result-body">
+        
+        <div class="result-body-content">
+            <p class="result-body-text">
+                <%= address["house_number"] %>
+                <%= address["street_predirection"] %>
+                <%= address["street_name"] %>
+                <%= address["street_type"] %>
+                <%= address["street_postdirection"] %>
+                <%= address["unit_type"] unless address["unit_number"].nil? %>
+                <%= address["unit_number"] %>
+                </br>
+                <%= address["city"] + ',' unless address["city"].nil? %>
+                <%= address["state"] + ',' unless address["state"].nil? %>
+                <%= "#{address["zip_5"]}#{'-'+address["zip_4"] unless (address["zip_4"].nil?)}" %>
+            </p>
+            <%= link_to "Validate Another", new_address_path(:partial_name => 'address_form'),
+                        class: "validate-button btn btn-info", :remote => true
+            %>
+        </div>
+    </div>
+</div>

@@ -17,8 +17,8 @@ A simple address validator using the Google's Geocode API
 
 ### Run docker locally
 * Clone repo
-* Alter address-validator/config/database.yml to use Postgres as the DB
-* `sh docker-launch.sh`
+* Alter `address-validator/config/database.yml` to use Postgres as the DB
+* Run `sh docker-launch.sh`
 
 # Testing
 * rails db:test

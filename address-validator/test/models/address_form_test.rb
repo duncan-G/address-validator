@@ -49,15 +49,6 @@ class AddressTest < ActiveSupport::TestCase
         end
     end
 
-    test "form state field should be 2 char" do
-        invalid_states = ["IDAHO","ILLINOIS","ADM","CAL","A"]
-        invalid_states.each do |invalid_state|
-            @address_form.state = invalid_state
-            @address_form.validate
-            assert_includes(@address_form.errors[:state], "is the wrong length (should be 2 characters)")
-        end
-    end
-
     test "form city field should be invalid" do
         invalid_cities = ['abc#$','$antaFe',"San--Francisco","SanFrancisc0","San_Fran"]
         invalid_cities.each do |invalid_city|
@@ -96,7 +87,7 @@ class AddressTest < ActiveSupport::TestCase
         invalid_address.each do |invalid_address|
             @blank_address_form.street_address = invalid_address
             @blank_address_form.validate
-            assert @blank_address_form.errors[:street_address].include?('contains invalid char(s)'),
+            assert @blank_address_form.errors[:street_address][0].include?('contains invalid char(s)'),
                 "#{invalid_address} #{@blank_address_form.errors[:street_address].inspect} should be invalid"
         end
     end

@@ -7,7 +7,7 @@ require File.dirname(__FILE__) + '/lib_test_helper'
 class GeocodeApiTest < ActiveSupport::TestCase
 
     setup do
-        @api_client = Geocode::Client
+        @api_client = Geocode::Client.new
         @street_address = []
         (1..5).each do |_|
             @street_address << Faker::Address.full_address
